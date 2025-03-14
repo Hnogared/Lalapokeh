@@ -1,0 +1,2 @@
+# Lalapoki
+Pokedex using pokeAPI
