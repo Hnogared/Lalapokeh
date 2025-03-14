@@ -3,8 +3,10 @@ Pokedex using pokeAPI
 
 
 ## TODO
-### Technologie entscheiden ?
+### Technologie entscheiden
 
-### Wer was macht ?
+### Wer was macht
 
-### Code ?
+### Code
+
+### Doku + Informationsquelle
