@@ -1,4 +1,4 @@
-# Lalapoki
+# Lalapokeh
 Pokedex using pokeAPI
 
 
