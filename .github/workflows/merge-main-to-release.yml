@@ -1,0 +1,28 @@
+name: Scheduled Merge main → release
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge main into release
+        run: |
+          git fetch origin
+          git checkout release
+          git merge origin/main --no-edit || git commit --allow-empty -m "Scheduled merge main → release"
+          git push origin release
+
