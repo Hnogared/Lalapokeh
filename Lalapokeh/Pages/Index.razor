@@ -1,3 +1,15 @@
 ﻿@page "/"
-
-<h1>Hello, world!</h1>
+<MudPaper Width="250px" Class="py-3" Elevation="0">
+    <MudNavMenu>
+        <MudText Typo="Typo.h6" Class="px-4">Menu</MudText>
+        <MudDivider Class="my-2" />
+        <MudNavLink Href="/Pokemon Collection">Pokemon Collection</MudNavLink>
+        <MudNavLink Href="/My Collection">My Collection</MudNavLink>
+        <MudNavLink Href="/billing" Disabled="true">Billing</MudNavLink>
+        <MudNavGroup Title="Settings" Expanded="true">
+            <MudNavLink Href="/users">Users</MudNavLink>
+            <MudNavLink Href="/security">Security</MudNavLink>
+        </MudNavGroup>
+        <MudNavLink Href="/about">About</MudNavLink>
+    </MudNavMenu>
+</MudPaper>
