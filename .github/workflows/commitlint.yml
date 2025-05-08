@@ -1,6 +1,8 @@
 name: Commitlint
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
     types: [opened, edited, synchronize, reopened]
