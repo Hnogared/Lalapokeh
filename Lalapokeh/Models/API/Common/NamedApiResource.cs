@@ -1,6 +1,6 @@
 ﻿namespace Lalapokeh.Models.API.Common
 {
-	public class NamedApiResource
-	{
-	}
+  public class NamedApiResource
+  {
+  }
 }
