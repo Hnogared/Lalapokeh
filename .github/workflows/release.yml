@@ -1,10 +1,9 @@
 name: Semantic Release
 
 on:
-  workflow_run:
-    workflows: ["Scheduled Merge main → release"]
-    types:
-      - completed
+  push:
+    branches:
+      - release
 
 permissions:
   contents: write
@@ -13,14 +12,12 @@ permissions:
 
 jobs:
   release:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout `release` branch
         uses: actions/checkout@v3
         with:
-          ref: release
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -34,4 +31,4 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: semantic-release --branch release
+        run: semantic-release
