@@ -1,9 +1,10 @@
 name: Semantic Release
 
 on:
-  push:
-    branches:
-      - release
+  workflow_run:
+    workflows: ["Scheduled Merge main → release"]
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -12,6 +13,7 @@ permissions:
 
 jobs:
   release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -31,4 +33,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: semantic-release
-
