@@ -29,8 +29,8 @@ jobs:
         run: |
           git fetch origin release
           git checkout release
-          git merge origin/main --no-edit
-          git push origin release
+          git rebase origin/main
+          git push origin release --force
 
   release:
     runs-on: ubuntu-latest
