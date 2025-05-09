@@ -1,0 +1,19 @@
+﻿@inject AppThemeService ThemeService
+
+<MudNavLink Href="/" Match="NavLinkMatch.All" ActiveClass="active-nav">Home</MudNavLink>
+<MudNavLink Href="/pokemon" Match="NavLinkMatch.All" ActiveClass="active-nav">Pokemon Overview</MudNavLink>
+<MudNavLink Href="/pokemon/collection" Match="NavLinkMatch.All" ActiveClass="active-nav">My Collection</MudNavLink>
+<MudNavGroup Title="Settings" Expanded="true">
+    <MudNavLink Href="/users" Match="NavLinkMatch.All" ActiveClass="active-nav">Users</MudNavLink>
+    <MudNavLink Href="/security" Match="NavLinkMatch.All" ActiveClass="active-nav">Security</MudNavLink>
+</MudNavGroup>
+<MudNavLink Href="/about" Match="NavLinkMatch.All" ActiveClass="active-nav">About</MudNavLink>
+
+<style>
+    .active-nav {
+        background-color: @ThemeService.CustomColors["Secondary"];
+        color: black !important;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+</style>

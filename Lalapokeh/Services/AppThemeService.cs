@@ -19,7 +19,7 @@ namespace Lalapokeh.Services
     {
       { "Primary", "#4285F4" },
       { "Secondary", "#FFCB05" },
-      { "Tertiay", "#828282" },
+      { "Tertiary", "#828282" },
       { "ActionDefault", "#000000" },
       { "Water", "#4D90D5" },
       { "Grass", "#61BB5B" },

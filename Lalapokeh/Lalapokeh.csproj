@@ -12,8 +12,4 @@
     <PackageReference Include="MudBlazor" Version="8.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
