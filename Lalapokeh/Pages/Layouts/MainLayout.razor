@@ -4,29 +4,21 @@
 
 <MudThemeProvider Theme="@ThemeService.DefaultTheme" />
 
-<MudLayout Style="height: 99vh; width:100%">
+<MudLayout Style="height: 99vh; width: 100vw">
     <Topbar />
 
     <MudDrawerContainer>
-        <MudDrawer @bind-Open="@_open" Variant="DrawerVariant.Persistent" Elevation="0" Style="border-right: 1px solid">
-            <MudDrawerHeader>
-                <MudText Typo="Typo.h6">Menu</MudText>
-            </MudDrawerHeader>
+      <MudDrawer @bind-Open="@_open" Variant="DrawerVariant.Persistent" Elevation="0" Style="border-right: 1px solid">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Navigation</MudText>
+        </MudDrawerHeader>
 
-            <MudNavMenu>
-                <MudNavLink Href="/pokemon">Pokemon Overview</MudNavLink>
-                <MudNavLink Href="/pokemon/collection">My Collection</MudNavLink>
-                <MudNavGroup Title="Settings" Expanded="true">
-                    <MudNavLink Href="/users">Users</MudNavLink>
-                    <MudNavLink Href="/security">Security</MudNavLink>
-                </MudNavGroup>
-                <MudNavLink Href="/about">About</MudNavLink>
-            </MudNavMenu>
-        </MudDrawer>
-
-        <MudMainContent>
-            @Body
-        </MudMainContent>
+        <Navbar />
+      </MudDrawer>
+        
+      <MudMainContent>
+          @Body
+      </MudMainContent>
     </MudDrawerContainer>
 </MudLayout>
 
