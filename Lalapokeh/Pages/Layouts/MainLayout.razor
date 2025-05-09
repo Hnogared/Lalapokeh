@@ -1,10 +1,40 @@
 ﻿@inherits LayoutComponentBase
 @using Lalapokeh.Components.Common
+@inject AppThemeService ThemeService
 
-<div class="layout-container">
+<MudThemeProvider Theme="@ThemeService.DefaultTheme" />
+
+<MudLayout Style="height: 99vh; width:100%">
     <Topbar />
 
-    <main class="layout-content">
-        @Body
-    </main>
-</div>
+    <MudDrawerContainer>
+        <MudDrawer @bind-Open="@_open" Variant="DrawerVariant.Persistent" Elevation="0" Style="border-right: 1px solid">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6">Menu</MudText>
+            </MudDrawerHeader>
+
+            <MudNavMenu>
+                <MudNavLink Href="/pokemon">Pokemon Overview</MudNavLink>
+                <MudNavLink Href="/pokemon/collection">My Collection</MudNavLink>
+                <MudNavGroup Title="Settings" Expanded="true">
+                    <MudNavLink Href="/users">Users</MudNavLink>
+                    <MudNavLink Href="/security">Security</MudNavLink>
+                </MudNavGroup>
+                <MudNavLink Href="/about">About</MudNavLink>
+            </MudNavMenu>
+        </MudDrawer>
+
+        <MudMainContent>
+            @Body
+        </MudMainContent>
+    </MudDrawerContainer>
+</MudLayout>
+
+@code {
+    private bool _open = true;
+
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+    }
+}

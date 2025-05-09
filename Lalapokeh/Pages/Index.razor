@@ -1,55 +1,39 @@
 ﻿@page "/"
-<MudPaper Width="250px" Class="py-3" Elevation="0">
-    <MudNavMenu>
-        <MudText Typo="Typo.h6" Class="px-4">Menu</MudText>
-        <MudDivider Class="my-2" />
-        <MudNavLink Href="/Pokemon Collection">Pokemon Collection</MudNavLink>
-        <MudNavLink Href="/My Collection">My Collection</MudNavLink>
-        <MudNavLink Href="/billing" Disabled="true">Billing</MudNavLink>
-        <MudNavGroup Title="Settings" Expanded="true">
-            <MudNavLink Href="/users">Users</MudNavLink>
-            <MudNavLink Href="/security">Security</MudNavLink>
-        </MudNavGroup>
-        <MudNavLink Href="/about">About</MudNavLink>
-    </MudNavMenu>
-</MudPaper>
 
-<MudGrid Justify="Justify.FlexStart" >
-    <MudCard Style="width: 200px; height: auto;">
-        <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png" Style="width: 200%: height: auto;" />
-        <MudCardContent>
-            <MudText Typo="Typo.h5">Arbok</MudText>
-        </MudCardContent>
+<MudGrid Justify="Justify.FlexStart" Spacing="4">
+    <MudItem>
+        <MudCard Style="width: 200px; height: auto;">
+            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png" Style="width: 200%: height: auto;" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Arbok</MudText>
+            </MudCardContent>
+      </MudCard>
+  </MudItem>
 
-    </MudCard>
-
+  <MudItem>
 	<MudCard Style="width: 200px; height: auto;">
 		<MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/25.png" Style="width: 200%: height: auto;" />
 		<MudCardContent>
 			<MudText Typo="Typo.h5">Pikachu</MudText>
 		</MudCardContent>
-
 	</MudCard>
+  </MudItem>
+
+  <MudItem>
     <MudCard Style="width: 200px; height: auto;">
         <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/77.png" Style="width: 200%: height: auto;" />
         <MudCardContent>
             <MudText Typo="Typo.h5">Ponyta</MudText>
         </MudCardContent>
-
     </MudCard>
+  </MudItem>
+
+  <MudItem>
     <MudCard Style="width: 200px; height: auto;">
         <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/39.png" Style="width: 200%: height: auto;" />
         <MudCardContent>
             <MudText Typo="Typo.h5">Jigglypuff</MudText>
         </MudCardContent>
-
     </MudCard>
-
-
-
-
-
-
-
+  </MudItem>
 </MudGrid>
-

@@ -1,5 +1,19 @@
 ﻿@inject AppThemeService ThemeService
 
 <MudAppBar Fixed="false" Style=@($"background-color: {ThemeService.CustomColors["Primary"]};")>
-    Pokemon
+    <MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Style="width: 100%; height: 55px; padding: 3px;">
+        <MudItem sm="4" Style="height: 100%;">
+            <MudImage src="images/pokemon_logo.png" alt="Logo" style="max-width: auto; height: 100%;" />
+        </MudItem>
+        <MudItem sm="4">
+            <MudStack Row Justify="Justify.Center">
+                <MudInput T="string" Placeholder="Search..." Style="background-color: #ffffff; padding: 3px 10px; width: 100%; border-radius: 3px;"/>
+            </MudStack>
+        </MudItem>
+        <MudItem sm="4">
+            <MudStack Row Justify="Justify.FlexEnd">
+                <MudAvatar Style=@($"background-color: {ThemeService.CustomColors["Tertiary"]};")>HN</MudAvatar>
+            </MudStack>
+        </MudItem>
+    </MudStack>
 </MudAppBar>
