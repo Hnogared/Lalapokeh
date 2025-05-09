@@ -1,4 +1,6 @@
-﻿namespace Lalapokeh.Services
+﻿using MudBlazor;
+
+namespace Lalapokeh.Services
 {
   public class AppThemeService
   {
