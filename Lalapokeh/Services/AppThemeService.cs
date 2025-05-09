@@ -1,11 +1,13 @@
-﻿namespace Lalapokeh.Services
+﻿using MudBlazor;
+
+namespace Lalapokeh.Services
 {
   public class AppThemeService
   {
     public Dictionary<string, string> CustomColors { get; set; } = new()
     {
-      { "Primary", "#ff5733" },
-      { "Secondary", "#3498db" },
+      { "Primary", "#4285F4" },
+      { "Secondary", "#FFCB05" },
       {"Tertiay", "#828282" },
       {" ActionDefault", "#000000" },
       {"Water", "#4D90D5"},
@@ -19,5 +21,6 @@
       {"Not Found", "#EB4335" },
       {"Go back to home", "#EB4335"},
     };
+
   }
 }
