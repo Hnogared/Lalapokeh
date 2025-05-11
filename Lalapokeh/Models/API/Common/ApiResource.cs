@@ -3,7 +3,7 @@
   /// <summary>
   /// Represents a generic API resource that includes only a URL.
   /// </summary>
-  public class APIResource
+  public class ApiResource
   {
     /// <summary>
     /// The URL of the referenced resource.
