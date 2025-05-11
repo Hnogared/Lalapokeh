@@ -1,235 +1,72 @@
 ﻿@page "/"
+@inject PokemonService PokemonService
+@using System.Globalization
 
-    <h1>Pokemon Overview</h1>
+<h1>Pokemon Overview</h1>
 <MudDivider />
 
 <MudContainer Style="width: 100%">
-<MudGrid Justify="Justify.FlexStart" Spacing="4">
-  <MudItem>
-    <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png" Style="width: 200%: height: auto;" />
-        <MudCardContent>
-            <MudText Typo="Typo.h5">bulbasaur</MudText>
-        </MudCardContent>
-    </MudCard>
-  </MudItem>
-
-  <MudItem>
-	<MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/2.png" Style="width: 200%: height: auto;" />
-		<MudCardContent>
-                <MudText Typo="Typo.h5">ivysaur</MudText>
-		</MudCardContent>
-	</MudCard>
-  </MudItem>
-
-  <MudItem>
-    <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/3.png" Style="width: 200%: height: auto;" />
-        <MudCardContent>
-                <MudText Typo="Typo.h5">venusaur</MudText>
-        </MudCardContent>
-    </MudCard>
-  </MudItem>
-
-  <MudItem>
-    <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/4.png" Style="width: 200%: height: auto;" />
-        <MudCardContent>
-                <MudText Typo="Typo.h5">charmander</MudText>
-        </MudCardContent>
-    </MudCard>
-  </MudItem>
-
-  <MudItem>
-    <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png" Style="width: 200%: height: auto;" />
-        <MudCardContent>
-                <MudText Typo="Typo.h5">charmeleon</MudText>
-        </MudCardContent>
-        </MudCard>
-  </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">charizard</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">squirtle</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/8.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">wartortle</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/9.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">blastoise</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem> 
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">caterpie</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/11.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">metapod</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/12.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">butterfree</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/13.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">weedle</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/14.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">kakuna</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/15.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">beedrill</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/16.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">pidgey</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/17.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">pidgeotto</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/18.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">pidgeot</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/female/19.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">rattata</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/23.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">ekans</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/female/20.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">raticate</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/21.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">spearow</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/22.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">fearow</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/24.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">arbok</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-
-    <MudItem>
-        <MudCard Style="width: 200px; height: auto;">
-            <MudImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/female/25.png" Style="width: 200%: height: auto;" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Pikachu</MudText>
-            </MudCardContent>
-        </MudCard>
-    </MudItem> 
-
-
-
-</MudGrid>
+    <MudGrid Justify="Justify.Center" Spacing="4">
+        @if (PokemonList is not null)
+        {
+            @foreach (var pokemon in PokemonList)
+            {
+                <MudItem>
+                    <MudCard Style="width: 200px; height: auto;">
+                        <MudImage
+                          src="@pokemon.ImageUrl"
+                          Alt="@pokemon.Name"
+                          Style="width: 200px; height: auto; image-rendering: pixelated"
+                        />
+                        <MudCardContent>
+                            <MudText Typo="Typo.h5">@pokemon.Name</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        }
+        else
+        {
+            <MudText Typo="Typo.h6">Loading Pokémon...</MudText>
+        }
+    </MudGrid>
 </MudContainer>
+
+
+@code {
+    private List<PokemonViewModel>? PokemonList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        PokemonList = await LoadPokemonListAsync();
+    }
+
+    private async Task<List<PokemonViewModel>> LoadPokemonListAsync()
+    {
+        var pokemonEntries = new List<PokemonViewModel>();
+        var pokemonResourceList = await PokemonService.GetNamedResourceListAsync();
+
+        if (pokemonResourceList is not null)
+        {
+            foreach (var resource in pokemonResourceList)
+            {
+                var urlParts = resource.Url.TrimEnd('/').Split('/');
+                var id = urlParts[^1];
+
+                pokemonEntries.Add(new PokemonViewModel
+                    {
+                        Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(resource.Name),
+                        ImageUrl = $"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{id}.png"
+                    });
+            }
+        }
+
+        return pokemonEntries;
+    }
+
+    private class PokemonViewModel
+    {
+        public required string Name { get; set; }
+        public required string ImageUrl { get; set; }
+    }
+}
