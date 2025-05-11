@@ -8,7 +8,7 @@
     /// <summary>
     /// The machine that teaches a move from an item.
     /// </summary>
-    public required APIResource Machine { get; set; }
+    public required ApiResource Machine { get; set; }
 
     /// <summary>
     /// The version group of this specific machine.
