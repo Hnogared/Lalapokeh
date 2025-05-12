@@ -35,34 +35,60 @@ h1:focus {
     content: "An error has occurred."
 }
 
-/* Border classes */
-.border {
-    border-width: 1px;
+
+/* Width and height classes */
+.w-auto {
+    width: auto;
 }
 
-.border-2 {
-    border-width: 2px;
+.w-full {
+    width: 100%;
 }
 
-.border-4 {
-    border-width: 4px;
+.w-half {
+    width: 50%;
 }
 
-.border-8 {
-    border-width: 8px;
+.w-quarter {
+    width: 25%;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-half {
+    height: 50%;
+}
+
+.h-quarter {
+    height: 25%;
 }
 
 
-/* Rounded classes */
-.rounded-sm {
-    border-radius: 0.125rem;
+/* Text classes */
+.text-stroked {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: black;
 }
 
-.rounded-md {
-    border-radius: 0.375rem;
+.text-stroked-white {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: white;
 }
 
-.rounded-lg {
-    border-radius: 0.5rem;
+
+/* Interaction classes */
+.hover-scale {
+    transition: transform 0.3s ease-in-out;
 }
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
 
