@@ -41,7 +41,17 @@ builder.Services.AddMudServices();
 
 builder.Services.AddSingleton<AppThemeService>();
 
-builder.Services.AddScoped<PokemonService>();
+builder.Services.AddLogging(config =>
+{
+  _ = config.AddDebug();
+});
+
+builder.Services.AddScoped<PokemonService>(sp =>
+{
+  var httpClient = sp.GetRequiredService<HttpClient>();
+  var logger = sp.GetRequiredService<ILogger<PokemonService>>();
+  return new PokemonService(httpClient, logger);
+});
 #endregion
 
 await builder.Build().RunAsync();
