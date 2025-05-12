@@ -1,0 +1,35 @@
+﻿@page "/Loginpage"
+@inject AppThemeService ThemeService
+
+
+<div style="height: 100%; width:70%; display: flex; justify-content: center; align-items: center;">
+
+    <MudGrid Style="width:40%;">
+
+        <MudText Align="Align.Center" Typo="Typo.h4" Class="my-15" Style="@($"width: 100%; color: {ThemeService.CustomColors["Secondary"]}")">
+            Welcome to your Pokémon Portal
+        </MudText>
+
+        <MudText Align="Align.Center" Typo="Typo.h5" Class="my-5" Style="width: 100%">
+            Login
+        </MudText>
+
+        <MudText Align="Align.Center" Typo="Typo.body1" Style="width: 100%">
+            Enter your email and your passwort to sign in for this app
+        </MudText>
+
+    <MudItem xs="12">
+        <MudField Label="" Variant="Variant.Outlined">email@domain.com</MudField>
+    </MudItem>
+    <MudItem xs="12">
+        <MudField Label="" Variant="Variant.Outlined">Password</MudField>
+    </MudItem>
+    <MudItem xs="12">
+        <MudButton FullWidth="true" Variant="Variant.Filled" DropShadow="false" Color="Color.Primary">Submit</MudButton>
+    </MudItem>
+        
+    <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Primary" Class="my-5" Style="width: 100%">
+            By clicking continue, you agree to our Terms of Service and Privacy Policy
+    </MudText>
+</MudGrid>
+</div>
