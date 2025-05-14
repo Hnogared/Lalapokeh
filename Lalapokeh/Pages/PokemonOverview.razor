@@ -1,0 +1,64 @@
+﻿@page "/pokemon"
+
+@inject PokemonService PokemonService
+@using Lalapokeh.Components.Pokemon
+
+<h1>Pokemon Overview</h1>
+<MudDivider Class="mb-3" />
+
+<MudContainer Style="width: 100%">
+    @if (PokemonList is not null)
+    {
+        <MudGrid Justify="Justify.Center" Spacing="4">
+            @foreach (var pokemon in PokemonList)
+            {
+                <MudItem>
+                    <PokemonCard SpriteUrl="@pokemon.ImageUrl" Name="@pokemon.Name" />
+                </MudItem>
+            }
+        </MudGrid>
+    }
+    else
+    {
+        <MudText Typo="Typo.h6">Loading Pokémon...</MudText>
+    }
+</MudContainer>
+
+
+@code {
+    private List<PokemonViewModel>? PokemonList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        PokemonList = await LoadPokemonListAsync();
+    }
+
+    private async Task<List<PokemonViewModel>> LoadPokemonListAsync()
+    {
+        var pokemonEntries = new List<PokemonViewModel>();
+        var pokemonResourceList = await PokemonService.GetNamedResourceListAsync(0, 100);
+
+        if (pokemonResourceList is not null)
+        {
+            foreach (var resource in pokemonResourceList)
+            {
+                var urlParts = resource.Url.TrimEnd('/').Split('/');
+                var id = urlParts[^1];
+
+                pokemonEntries.Add(new PokemonViewModel
+                    {
+                        Name = resource.Name,
+                        ImageUrl = $"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{id}.png"
+                    });
+            }
+        }
+
+        return pokemonEntries;
+    }
+
+    private class PokemonViewModel
+    {
+        public required string Name { get; set; }
+        public required string ImageUrl { get; set; }
+    }
+}

@@ -31,6 +31,64 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+
+/* Width and height classes */
+.w-auto {
+    width: auto;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-half {
+    width: 50%;
+}
+
+.w-quarter {
+    width: 25%;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-half {
+    height: 50%;
+}
+
+.h-quarter {
+    height: 25%;
+}
+
+
+/* Text classes */
+.text-stroked {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: black;
+}
+
+.text-stroked-white {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: white;
+}
+
+
+/* Interaction classes */
+.hover-scale {
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+
