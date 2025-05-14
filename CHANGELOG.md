@@ -1,3 +1,14 @@
+# [1.1.0](https://github.com/Hnogared/Lalapokeh/compare/v1.0.0...v1.1.0) (2025-05-14)
+
+
+### Features
+
+* add loginpage ([#55](https://github.com/Hnogared/Lalapokeh/issues/55)) ([72a20f6](https://github.com/Hnogared/Lalapokeh/commit/72a20f6d9a2f96bcd3309c17eebbcd8c095b398b))
+* added stat and type related models ([#53](https://github.com/Hnogared/Lalapokeh/issues/53)) ([7638f85](https://github.com/Hnogared/Lalapokeh/commit/7638f8583c66715969dea605c58b42cb2817ba38))
+* app cards ([#57](https://github.com/Hnogared/Lalapokeh/issues/57)) ([73bc96e](https://github.com/Hnogared/Lalapokeh/commit/73bc96e63f8011c5a931d28a4532e42efbc8a33b))
+* pokeapi models + pokemon service ([#46](https://github.com/Hnogared/Lalapokeh/issues/46)) ([d71612c](https://github.com/Hnogared/Lalapokeh/commit/d71612ca1823ebde026cd899262ac2c770a1988d))
+* sign in page ([#56](https://github.com/Hnogared/Lalapokeh/issues/56)) ([c2b4e3f](https://github.com/Hnogared/Lalapokeh/commit/c2b4e3f8540af950cc9ca1190a335e2187dd7ba1))
+
 # 1.0.0 (2025-05-09)
 
 
