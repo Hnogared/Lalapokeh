@@ -1,5 +1,25 @@
 # Dokumentation PokeAPI
 
+## Lokal installieren und laufen lassen
+Das Projekt klonen
+```
+git clone 
+```
+
+Falls Sie Visual Studio haben:
+1 - Die Solution auf VS öffnen
+2 - Auf "Run" in der obéren Leiste drücken
+
+Falls Sie das Projekt durch die dotnet CLI laufen lassen wollen:
+1 - Das Projekt builden
+```
+dotnet build
+```
+2 - Das Projekt laufen lassen
+```
+dotnet run
+```
+
 ## Feature Future
 Für die Zukunft ist geplant, die Seiten und Komponenten, die sich noch in Entwicklung befinden, fertigzustellen. Dazu gehören:
 - **Login-Seite** mit Authentifizierung via E-Mail und Passwort  
