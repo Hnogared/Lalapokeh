@@ -1,35 +1,42 @@
-﻿@page "/Loginpage"
+﻿@page "/auth/login"
 @inject AppThemeService ThemeService
 
+<MudGrid
+  Spacing="0"
+  Class="h-full w-full"
+  Justify="Justify.Center"
+  Style="background-image: url('images/backgrounds/bg-login.png'); background-position: center; background-size: cover"
+>
+  <MudItem sm="6">
+    <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center" Class="h-full">
+      <MudStack Class="mx-20" Justify="Justify.Center">
+          <MudText Align="Align.Center" Typo="Typo.h4" Class="my-15 w-full" Style="@($"color: {ThemeService.CustomColors["Secondary"]}")">
+              Welcome to your Pokémon Portal
+          </MudText>
 
-<div style="height: 100%; width:70%; display: flex; justify-content: center; align-items: center;">
+          <MudText Align="Align.Center" Typo="Typo.h5" Class="my-5 w-full">
+              Login
+          </MudText>
 
-    <MudGrid Style="width:40%;">
+          <MudText Align="Align.Center" Typo="Typo.body1" Class="w-full">
+              Enter your email and your passwort to sign in for this app
+          </MudText>
 
-        <MudText Align="Align.Center" Typo="Typo.h4" Class="my-15" Style="@($"width: 100%; color: {ThemeService.CustomColors["Secondary"]}")">
-            Welcome to your Pokémon Portal
-        </MudText>
+          <MudField Label="" Variant="Variant.Outlined">email@domain.com</MudField>
 
-        <MudText Align="Align.Center" Typo="Typo.h5" Class="my-5" Style="width: 100%">
-            Login
-        </MudText>
+          <MudField Label="" Variant="Variant.Outlined">Password</MudField>
 
-        <MudText Align="Align.Center" Typo="Typo.body1" Style="width: 100%">
-            Enter your email and your passwort to sign in for this app
-        </MudText>
-
-    <MudItem xs="12">
-        <MudField Label="" Variant="Variant.Outlined">email@domain.com</MudField>
-    </MudItem>
-    <MudItem xs="12">
-        <MudField Label="" Variant="Variant.Outlined">Password</MudField>
-    </MudItem>
-    <MudItem xs="12">
-        <MudButton FullWidth="true" Variant="Variant.Filled" DropShadow="false" Color="Color.Primary">Submit</MudButton>
-    </MudItem>
+          <MudButton FullWidth="true" Variant="Variant.Filled" DropShadow="false" Color="Color.Primary">Submit</MudButton>
         
-    <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Primary" Class="my-5" Style="width: 100%">
-            By clicking continue, you agree to our Terms of Service and Privacy Policy
-    </MudText>
+          <MudText Align="Align.Center" Typo="Typo.body1" Color="Color.Primary" Class="my-5 w-full">
+              By clicking continue, you agree to our Terms of Service and Privacy Policy
+          </MudText>
+      </MudStack>
+    </MudStack>
+  </MudItem>
+  <MudItem sm="6">
+    <MudStack AlignItems="AlignItems.Center" Justify="Justify.Center" Class="h-full">
+      <MudImage Src="images/pipup.png" Alt="pipup" Class="w-half" Style="transform: scaleX(-1)"/>
+    </MudStack>
+  </MudItem>
 </MudGrid>
-</div>

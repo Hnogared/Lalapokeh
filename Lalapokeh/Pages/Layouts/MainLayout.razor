@@ -5,22 +5,26 @@
 <MudThemeProvider Theme="@ThemeService.DefaultTheme" />
 <MudPopoverProvider />
 
-<MudLayout Style="height: 99vh; width: 100vw">
+<MudLayout Style="height: 100vh; width: 100vw">
+  <MudStack Spacing="0" Class="h-full w-full">
     <Topbar />
 
-    <MudDrawerContainer>
-      <MudDrawer @bind-Open="@_open" Variant="DrawerVariant.Persistent" Elevation="0" Style="border-right: 1px solid">
+    <MudDrawerContainer Class="h-full" Style="flex: 1; overflow: auto">
+      <MudDrawer @bind-Open="@_open" Variant="DrawerVariant.Persistent" Fixed="true" Elevation="0" Class="h-full">
         <MudDrawerHeader>
             <MudText Typo="Typo.h6">Navigation</MudText>
         </MudDrawerHeader>
 
         <Navbar />
       </MudDrawer>
-        
-      <MudMainContent>
+      
+      <div class="h-full" style="position: fixed; border-right: solid 1px"/>
+
+      <MudMainContent Class="h-full pa-0">
           @Body
       </MudMainContent>
     </MudDrawerContainer>
+  </MudStack>
 </MudLayout>
 
 @code {
