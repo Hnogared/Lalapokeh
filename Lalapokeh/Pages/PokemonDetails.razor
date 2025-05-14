@@ -1,0 +1,46 @@
+﻿@page "/pokemon/{name}"
+
+@inject NavigationManager NavigationManager
+@inject PokemonService PokemonService
+@using Lalapokeh.Models.API.Pokemon
+
+<h3>Pokémon Information</h3>
+
+@if (Pokemon is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div>
+        <h4>@Pokemon.Name</h4>
+        <img src="@Pokemon.Sprites.FrontDefault" alt="@Pokemon.Name" />
+        <p>Height: @Pokemon.Height</p>
+        <p>Weight: @Pokemon.Weight</p>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string? Name { get; set; }
+
+    private Pokemon? Pokemon;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Name is null)
+        {
+            NavigationManager.NavigateTo("/not-found");
+            return;
+        }
+
+        try
+        {
+            Pokemon = await PokemonService.GetByNameAsync(Name);
+        }
+        catch (HttpRequestException)
+        {
+            NavigationManager.NavigateTo("/not-found");
+        }
+    }
+}

@@ -1,0 +1,54 @@
+﻿@inject AppThemeService ThemeService
+@using Lalapokeh.Models.API.Pokemon
+@using System.Globalization
+
+<MudStack Row="!Vertical" Spacing="2" Justify="Justify.Center" Class="w-full">
+	@if (ViewModels.Count > 0)
+	{
+		@foreach (var entry in ViewModels)
+		{
+			<img src="@entry.Src"
+			alt="@entry.Title"
+			title="@entry.Title"
+			class="pa-1 rounded-circle"
+			style=@($"width: 30px; background-color: {entry.BackgroundColor}")
+			/>
+		}
+	}
+</MudStack>
+
+@code {
+	[Parameter]
+	[EditorRequired]
+	public required List<PokemonType> Types { get; set; }
+
+	[Parameter]
+	public required bool Vertical { get; set; } = false;
+
+	private List<TypeViewModel> ViewModels = [];
+
+	protected override void OnInitialized()
+	{
+		foreach (var type in Types)
+		{
+			var typeKey = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(type.Type.Name);
+
+			var typeColor = ThemeService.CustomColors.ContainsKey(typeKey)
+				? ThemeService.CustomColors[typeKey]
+				: ThemeService.CustomColors["NotFound"];
+
+			ViewModels.Add(new TypeViewModel
+				{
+					Src = $"images/type-icons/{type.Type.Name}.svg",
+					BackgroundColor = typeColor,
+					Title = $"{type.Type.Name} type"
+				});
+		}
+	}
+
+	private class TypeViewModel {
+		public required string Src { get; set; }
+		public required string BackgroundColor { get; set; }
+		public required string Title { get; set; }
+	}
+}

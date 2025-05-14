@@ -1,0 +1,71 @@
+﻿@inject PokemonService PokemonService
+@inject AppThemeService ThemeService
+@using System.Globalization
+@using Lalapokeh.Models.API.Pokemon
+
+<MudLink Href="@($"/pokemon/{Name}")">
+    <MudCard Elevation="3"
+             Class="border-2 h-auto hover-scale"
+             Style=@($"position: relative; width: 200px; border-color: {TypeColor}")>
+        @if (Pokemon is not null)
+        {
+            <MudCardHeader Style="position: absolute; right: 0">
+                <MudPaper Elevation="2"
+                          Class="pa-1 rounded-xl border-2"
+                          Style=@($"border-color: {ThemeService.CustomColors["SurfaceDarken"]}")>
+                    <TypeIcons Types="Pokemon.Types" Vertical />
+                </MudPaper>
+            </MudCardHeader>
+        }
+        <MudCardMedia Image="@SpriteUrl" Height="200" Style="image-rendering: pixelated" />
+        <MudCardContent>
+            <MudPaper Class="rounded-sm" Style=@($"background-color: {TypeColor}")>
+                <MudText Align="Align.Center" Typo="Typo.h6">
+                    @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Name)
+                </MudText>
+            </MudPaper>
+        </MudCardContent>
+    </MudCard>
+</MudLink>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public required string SpriteUrl { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public required string Name { get; set; }
+
+    private Pokemon? Pokemon;
+    private string TypeColor = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        TypeColor = ThemeService.CustomColors["Tertiary"];
+
+        try
+        {
+            Pokemon = await PokemonService.GetByNameAsync(Name);
+
+            var type = Pokemon?.Types[0]?.Type?.Name;
+
+            if (type is not null)
+            {
+                var typeKey = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(type);
+
+                TypeColor = ThemeService.CustomColors.ContainsKey(typeKey)
+                    ? ThemeService.CustomColors[typeKey]
+                    : ThemeService.CustomColors["NotFound"];
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            Console.WriteLine("Request canceled.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+}
