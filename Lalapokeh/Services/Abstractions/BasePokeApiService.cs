@@ -1,6 +1,7 @@
 ﻿using Lalapokeh.Models.API.Common;
 using Lalapokeh.Models.API.Interfaces;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace Lalapokeh.Services.Abstractions
 {
@@ -17,6 +18,7 @@ namespace Lalapokeh.Services.Abstractions
     private readonly string _logId;
     private readonly int _pageSize;
     private readonly ILogger<BasePokeApiService<TApiData>> _logger;
+    private readonly JsonSerializerOptions? _jsonOptions;
 
     private static List<NamedApiResource> _cachedNamedApiResourceList = new();
     private static readonly Dictionary<int, TApiData> _cacheEntryById = new();
@@ -26,14 +28,16 @@ namespace Lalapokeh.Services.Abstractions
       HttpClient httpClient,
       string resourceBaseUrl,
       ILogger<BasePokeApiService<TApiData>> logger,
+      JsonSerializerOptions? jsonOptions,
       int pageSize = 1000
     )
     {
       _httpClient = httpClient;
       _resourceBaseUrl = resourceBaseUrl;
       _logId = $"ApiService[{resourceBaseUrl}]";
-      _pageSize = pageSize;
       _logger = logger;
+      _jsonOptions = jsonOptions;
+      _pageSize = pageSize;
     }
 
     #region Public methods
@@ -187,7 +191,7 @@ namespace Lalapokeh.Services.Abstractions
         throw new HttpRequestException($"{_logId}: {errorMsg}", null, response.StatusCode);
       }
 
-      return await response.Content.ReadFromJsonAsync<TReturn>(cancellationToken: cancellationToken);
+      return await response.Content.ReadFromJsonAsync<TReturn>(_jsonOptions, cancellationToken: cancellationToken);
     }
 
     private static string SanitizeInput(string name)

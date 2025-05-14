@@ -3,6 +3,7 @@ using Lalapokeh.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
+using System.Text.Json;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -46,11 +47,18 @@ builder.Services.AddLogging(config =>
   _ = config.AddDebug();
 });
 
+builder.Services.AddSingleton(new JsonSerializerOptions
+{
+  PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+  PropertyNameCaseInsensitive = true,
+});
+
 builder.Services.AddScoped<PokemonService>(sp =>
 {
   var httpClient = sp.GetRequiredService<HttpClient>();
   var logger = sp.GetRequiredService<ILogger<PokemonService>>();
-  return new PokemonService(httpClient, logger);
+  var jsonOptions = sp.GetRequiredService<JsonSerializerOptions>();
+  return new PokemonService(httpClient, logger, jsonOptions);
 });
 #endregion
 

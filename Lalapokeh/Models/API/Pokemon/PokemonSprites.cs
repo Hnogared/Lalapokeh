@@ -5,43 +5,43 @@
     /// <summary>
     /// The default depiction of this Pokémon from the front in battle.
     /// </summary>
-    public required string FrontDefault;
+    public string? FrontDefault;
 
     /// <summary>
     /// The shiny depiction of this Pokémon from the front in battle.
     /// </summary>
-    public required string FrontShiny;
+    public string? FrontShiny;
 
     /// <summary>
     /// The female depiction of this Pokémon from the front in battle.
     /// </summary>
-    public required string FrontFemale;
+    public string? FrontFemale;
 
     /// <summary>
     /// The shiny female depiction of this Pokémon from the front in battle.
     /// </summary>
-    public required string FrontShinyFemale;
+    public string? FrontShinyFemale;
 
     /// <summary>
     /// The default depiction of this Pokémon from the back in battle.
     /// </summary>
-    public required string BackDefault;
+    public string? BackDefault;
 
     /// <summary>
     /// The shiny depiction of this Pokémon from the back in battle.
     /// </summary>
-    public required string BackShiny;
+    public string? BackShiny;
 
 
     /// <summary>
     /// The female depiction of this Pokémon from the back in battle.
     /// </summary>
-    public required string BackFemale;
+    public string? BackFemale;
 
 
     /// <summary>
     /// The shiny female depiction of this Pokémon from the back in battle.
     /// </summary>
-    public required string BackShinyFemale;
+    public string? BackShinyFemale;
   }
 }

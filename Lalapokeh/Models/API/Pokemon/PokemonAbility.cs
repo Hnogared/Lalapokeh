@@ -10,7 +10,7 @@ namespace Lalapokeh.Models.API.Pokemon
     /// <summary>
     /// Whether or not this is a hidden ability.
     /// </summary>
-    public required bool IsHidden { get; set; }
+    public bool? IsHidden { get; set; }
 
     /// <summary>
     /// The slot this ability occupies in this Pokémon species.

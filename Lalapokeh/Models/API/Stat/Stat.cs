@@ -1,11 +1,12 @@
 ﻿using Lalapokeh.Models.API.Common;
+using Lalapokeh.Models.API.Interfaces;
 
 namespace Lalapokeh.Models.API.Stat
 {
   /// <summary>
   /// Represents a Pokémon stat and its attributes.
   /// </summary>
-  public class Stat
+  public class Stat : INameApiResource, IIndexApiResource
   {
     /// <summary>
     /// The identifier for this stat.

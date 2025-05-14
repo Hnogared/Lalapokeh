@@ -1,11 +1,12 @@
 ﻿using Lalapokeh.Models.API.Common;
+using Lalapokeh.Models.API.Interfaces;
 
 namespace Lalapokeh.Models.API.Pokemon
 {
   /// <summary>
   /// Represents a Pokémon and its attributes.
   /// </summary>
-  public class Pokemon
+  public class Pokemon : IIndexApiResource, INameApiResource
   {
     /// <summary>
     /// The identifier for this Pokémon.
@@ -20,7 +21,7 @@ namespace Lalapokeh.Models.API.Pokemon
     /// <summary>
     /// The base experience gained for defeating this Pokémon.
     /// </summary>
-    public required int BaseExperience { get; set; }
+    public int? BaseExperience { get; set; }
 
     /// <summary>
     /// The height of this Pokémon in decimetres.
@@ -30,7 +31,7 @@ namespace Lalapokeh.Models.API.Pokemon
     /// <summary>
     /// Whether this Pokémon is the default for its species.
     /// </summary>
-    public required bool IsDefault { get; set; }
+    public bool? IsDefault { get; set; }
 
     /// <summary>
     /// Order for sorting. Almost national order, except families are grouped together.
@@ -55,17 +56,17 @@ namespace Lalapokeh.Models.API.Pokemon
     /// <summary>
     /// The game indices relevant to this Pokémon.
     /// </summary>
-    public required List<VersionGameIndex> GameIndices { get; set; }
+    public List<VersionGameIndex>? GameIndices { get; set; }
 
     /// <summary>
     /// The items this Pokémon may hold when encountered.
     /// </summary>
-    public required List<PokemonHeldItem> HeldItems { get; set; }
+    public List<PokemonHeldItem>? HeldItems { get; set; }
 
     /// <summary>
     /// A link to location area encounters for this Pokémon.
     /// </summary>
-    public required string LocationAreaEncounters { get; set; }
+    public string? LocationAreaEncounters { get; set; }
 
     /// <summary>
     /// The moves this Pokémon can learn.
@@ -75,12 +76,12 @@ namespace Lalapokeh.Models.API.Pokemon
     /// <summary>
     /// The past types this Pokémon had in previous generations.
     /// </summary>
-    public required List<PokemonTypePast> PastTypes { get; set; }
+    public List<PokemonTypePast>? PastTypes { get; set; }
 
     /// <summary>
     /// The past abilities this Pokémon had in previous generations.
     /// </summary>
-    public required List<PokemonAbilityPast> PastAbilities { get; set; }
+    public List<PokemonAbilityPast>? PastAbilities { get; set; }
 
     /// <summary>
     /// The sprites associated with this Pokémon.

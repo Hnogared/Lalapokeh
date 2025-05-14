@@ -1,11 +1,12 @@
 ﻿using Lalapokeh.Models.API.Common;
+using Lalapokeh.Models.API.Interfaces;
 
 namespace Lalapokeh.Models.API.Type
 {
   /// <summary>
   /// Represents a Pokémon type and its attributes.
   /// </summary>
-  public class Type
+  public class Type : IIndexApiResource, INameApiResource
   {
     /// <summary>
     /// The identifier for this type.
